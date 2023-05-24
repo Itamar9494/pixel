@@ -178,11 +178,17 @@ def show_picture(file):
     im = imageio.imread(original_file)
     im_gray = rgb2gray(im)
     print('image shape: ' + str(im.shape))
-    ans_1 = question('Do you want to choose by pixels number or line &columns? (p/lc) ', ['p', 'lc'])
+    pixel_or_line_cul = question('Do you want to choose by pixels number or line&columns? (p/lc) ', ['p', 'lc'])
 
-    if ans_1 == 'p':
+    if pixel_or_line_cul == 'p':
+        if im_gray.shape[0] / im_gray.shape[1] < 60 / 115:
+            max_pixels = min(im_gray.shape[1], 115)**2*(im_gray.shape[0] / im_gray.shape[1])
+        else:
+            max_pixels = min(im_gray.shape[0], 60)**2*(im_gray.shape[1] / im_gray.shape[0])
+        print(f'max pixels (recommended): {round(max_pixels)}')
         pixels = int(input('How many pixels do you want? '))
         im_shrink = image_shrink_pixels(im, pixels)
+        print('New image shape: ' + str(im_shrink.shape))
     else:
         print('max height (recommended): 60, max width (recommended): 115')
         lines = int(input('How many lines do you want? '))
@@ -191,34 +197,34 @@ def show_picture(file):
     im_pixel = im2pixel(im_shrink, colors_num)
     im_num = im2numbers(im_pixel, colors_num)
 
-    ans_2 = question('do you want to see the original photo? (yes/no) ', ['yes', 'no'])
-    ans_3 = question('do you want to see the new photo? (yes/no) ', ['yes', 'no'])
+    original_image = question('do you want to see the original image? (y/n) ', ['y', 'n'])
+    new_image = question('do you want to see the new photo? (y/n) ', ['y', 'n'])
 
-    if ans_2 == 'yes':
+    if original_image == 'y':
         plt.figure()
         plt.imshow(im, cmap=plt.cm.gray)
         plt.show()
-    if ans_3 == 'yes':
+    if new_image == 'y':
         plt.figure()
         plt.imshow(im_pixel, cmap=plt.cm.gray)
         plt.show()
         print('Image size: ' + str(im_pixel.shape))
 
-    ans_4 = question("do you want to create a new file of the image's pixels? (yes/no) ", ['yes', 'no'])
+    new_pixel_file = question("do you want to create a new file of the image's pixels? (y/n) ", ['y', 'n'])
 
     EXPORT_FILES_DIR = 'export_files'
 
-    if ans_4 == 'yes':
+    if new_pixel_file == 'y':
         file_name = input("choose file's name: ") + '.csv'
         path = os.path.join(EXPORT_FILES_DIR, 'csv', file_name)
         df = pd.DataFrame(im_num)
         df.to_csv(path_or_buf=path, index=False)
 
-    ans_5 = 0
+    see_dice_image = 0
     if colors_num <= 7:
-        ans_5 = question('do you want to see the new photo as dice painting? (yes/no) ', ['yes', 'no'])
+        see_dice_image = question('do you want to see and save the new photo as dice painting? (y/n) ', ['y', 'n'])
 
-    if ans_5 == 'yes':
+    if see_dice_image == 'y':
         file_name = input("choose file's name: ") + '.eps'
         path = os.path.join(EXPORT_FILES_DIR, 'eps', file_name)
         size = 12
@@ -230,18 +236,9 @@ def show_picture(file):
         #         window.setup(width=im_num.shape[1]*size*11/10, height=im_num.shape[0]*size*11/10)
         turtle.penup()
         #         turtle.goto(-im_num.shape[1]*size*11/10//2, im_num.shape[0]*size*11/10//2)
-        if im_pixel.shape[0] >= height and im_pixel.shape[1] >= abs(width) * 2:
-            new_height = height
-            new_width = width
-        elif im_pixel.shape[0] >= height * 2:
-            new_height = height
-            new_width = im_pixel.shape[1] / 115 * width
-        elif im_pixel.shape[1] >= abs(width) * 2:
-            new_height = im_pixel.shape[0] / 60 * height
-            new_width = width
-        else:
-            new_height = im_pixel.shape[0] / 60 * height
-            new_width = im_pixel.shape[1] / 115 * width
+
+        new_width = max(im_pixel.shape[1] / 115 * width, width)
+        new_height = min(im_pixel.shape[0] / 60 * height, height)
         turtle.goto(new_width, new_height)
         turtle.pendown()
         show_dice_picture(im_num, size, size / 3, new_height, new_width)
