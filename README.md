@@ -19,12 +19,19 @@ To use the program, follow these steps:
 2. Copy the name of the file and paste it in the appropriate place in the code.
 
 3. Run the code and answer the following questions:
+    
     a. How many shades would you like for the picture? Note that to draw the pixelated image as game cubes, choose a number less than or equal to 7.
+    
     b. How would you like to choose the image size? Based on the total number of pixels or by manually defining the number of rows and columns?
+    
     c. How many pixels or how many rows and columns would you like?
+    
     d. Would you like to see the original image?
+    
     e. Would you like to see the pixelated image?
+    
     f. Would you like to save the new image as a CSV file?
+    
     g. Would you like to see and save the pixelated image as it is drawn by game cubes?
   
 ## Prerequisites
