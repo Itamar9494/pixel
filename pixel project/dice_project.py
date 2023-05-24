@@ -6,6 +6,7 @@ import imageio
 import matplotlib.pyplot as plt
 import pandas as pd
 import turtle
+import os
 
 def rgb2gray(rgb):
     return np.dot(rgb[...,:3], [0.2989, 0.5870, 0.1140])
@@ -157,6 +158,7 @@ def show_dice_picture(im, size, dot_size, height, width):
     turtle.goto(width,height)
     turtle.pendown()
     new_height = height
+    turtle.tracer(2)  # control animation speed
     for i in range(im.shape[0]):
         new_width = width
         for j in range(im.shape[1]):
@@ -204,9 +206,11 @@ def show_picture(file):
 
     ans_4 = question("do you want to create a new file of the image's pixels? (yes/no) ", ['yes', 'no'])
 
+    EXPORT_FILES_DIR = 'export_files'
+
     if ans_4 == 'yes':
         file_name = input("choose file's name: ") + '.csv'
-        path = 'export files - csv/' + file_name
+        path = os.path.join(EXPORT_FILES_DIR, 'csv', file_name)
         df = pd.DataFrame(im_num)
         df.to_csv(path_or_buf=path, index=False)
 
@@ -216,9 +220,10 @@ def show_picture(file):
 
     if ans_5 == 'yes':
         file_name = input("choose file's name: ") + '.eps'
-        path = "export files - eps/" + file_name
+        path = os.path.join(EXPORT_FILES_DIR, 'eps', file_name)
         size = 12
         turtle.speed(0)
+        turtle.hideturtle()
         height = 386
         width = -765
         #         window = turtle.Screen()
