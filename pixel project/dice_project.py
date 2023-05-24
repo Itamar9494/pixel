@@ -242,3 +242,15 @@ def show_picture(file):
         show_dice_picture(im_num, size, size / 3, new_height, new_width)
         turtle.getcanvas().postscript(file=path)
         turtle.done()
+
+def main_function():
+    rgb2gray()
+    find_middle()
+    im2pixel()
+    im2numbers()
+    question()
+    image_shrink_lines()
+    image_shrink_pixels()
+    draw_dice()
+    show_dice_picture()
+    show_picture()
