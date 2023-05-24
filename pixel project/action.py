@@ -1,9 +1,2 @@
-def main():
-    rgb2gray()
-    find_middle()
-    im2pixel()
-    im2numbers()
-    question()
-
-if __name__ == __main__:
-    main()
+from dice_project import *
+show_picture('jack.jpg')
