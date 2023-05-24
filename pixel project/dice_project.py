@@ -177,7 +177,7 @@ def show_picture(file):
     original_file = 'files/' + file
     im = imageio.imread(original_file)
     im_gray = rgb2gray(im)
-    print('image shape: ' + str(im.shape))
+    print('Image shape: ' + str(im.shape))
     pixel_or_line_cul = question('Do you want to choose by pixels number or line&columns? (p/lc) ', ['p', 'lc'])
 
     if pixel_or_line_cul == 'p':
@@ -185,20 +185,20 @@ def show_picture(file):
             max_pixels = min(im_gray.shape[1], 115)**2*(im_gray.shape[0] / im_gray.shape[1])
         else:
             max_pixels = min(im_gray.shape[0], 60)**2*(im_gray.shape[1] / im_gray.shape[0])
-        print(f'max pixels (recommended): {round(max_pixels)}')
+        print(f'Max pixels (recommended): {round(max_pixels)}')
         pixels = int(input('How many pixels do you want? '))
         im_shrink = image_shrink_pixels(im, pixels)
         print('New image shape: ' + str(im_shrink.shape))
     else:
-        print('max height (recommended): 60, max width (recommended): 115')
+        print('Max height (recommended): 60, max width (recommended): 115')
         lines = int(input('How many lines do you want? '))
         columns = int(input('How many columns do you want? '))
         im_shrink = image_shrink_lines(im, lines, columns)
     im_pixel = im2pixel(im_shrink, colors_num)
     im_num = im2numbers(im_pixel, colors_num)
 
-    original_image = question('do you want to see the original image? (y/n) ', ['y', 'n'])
-    new_image = question('do you want to see the new photo? (y/n) ', ['y', 'n'])
+    original_image = question('Do you want to see the original image? (y/n) ', ['y', 'n'])
+    new_image = question('Do you want to see the new photo? (y/n) ', ['y', 'n'])
 
     if original_image == 'y':
         plt.figure()
@@ -210,12 +210,12 @@ def show_picture(file):
         plt.show()
         print('Image size: ' + str(im_pixel.shape))
 
-    new_pixel_file = question("do you want to create a new file of the image's pixels? (y/n) ", ['y', 'n'])
+    new_pixel_file = question("Do you want to create a new file of the image's pixels? (y/n) ", ['y', 'n'])
 
     EXPORT_FILES_DIR = 'export_files'
 
     if new_pixel_file == 'y':
-        file_name = input("choose file's name: ") + '.csv'
+        file_name = input("Choose file's name: ") + '.csv'
         path = os.path.join(EXPORT_FILES_DIR, 'csv', file_name)
         df = pd.DataFrame(im_num)
         df.to_csv(path_or_buf=path, index=False)
