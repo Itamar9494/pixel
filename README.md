@@ -32,7 +32,7 @@ To use the program, follow these steps:
 
   f. Would you like to save the new image as a CSV file?
 
-  g. Would you like to see and save the pixelated image as it is drawn by game cubes?
+     g. Would you like to see and save the pixelated image as it is drawn by game cubes?
   
 ## Prerequisites
 
