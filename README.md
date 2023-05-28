@@ -1,6 +1,8 @@
 # Pixel Project
 ## Introduction
 
+The software allows you to upload any image you want and create a new, pixelated image of the original image. You can control the size, the number of pixels and the number of shades of the image. Also, it is also possible to get the image pixelated by playing dice, where the shade of the image is determined by the number on the dice. 
+
 The program offers the following operations:
 
 1. View the original image.
