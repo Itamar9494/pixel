@@ -11,7 +11,7 @@ The software allows you to upload any image you want and create a new, pixelated
 
 #### Pixeled image:
 
-<img src="Lion_pixel.jpg" alt="Image" width="300" height="200">
+<img src="lion_pixel.jpg" alt="Image" width="300" height="200">
 
 #### Dice pixeled image:
 
