@@ -52,20 +52,14 @@ To use the program, follow these steps:
   
 ## Prerequisites
 
-Before running the code, ensure that you have the following libraries installed:
+To use the code, please install the following packages using `pip install`:
 
-pip install math
+- Package 1: `pip install math`
+- Package 2: `pip install numpy`
+- Package 3: `pip install imageio`
+- Package 4: `pip install matplotlib`
+- Package 5: `pip install pandas`
+- Package 7: `pip install turtle`
+- Package 8: `pip install os`
 
-pip install numpy as np
-
-pip install imageio
-
-pip install matplotlib.pyplot
-
-pip install pandas as pd
-
-pip install turtle
-
-pip install os
-
-Additionally, download the EPS Viewer app [here](https://epsviewer.org/download.aspx) to open the EPS files containing the dice pixel images.
+Additionally, download [EPS Viewer app](https://epsviewer.org/download.aspx) to open the EPS files containing the dice pixel images.
