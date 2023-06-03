@@ -30,36 +30,79 @@ The software allows you to upload any image you want and create a new, pixelated
 ## Usage
 To use the program, follow these steps:
 
-1. Upload the image you want to pixelate to the files folder.
+#### 1. Install Git:
 
-2. Copy the name of the file and paste it in the appropriate place in the code.
+If you haven't already, download and install Git on your computer from the official website (https://git-scm.com/downloads). Follow the installation instructions specific to your operating system.
 
-3. Run the code and answer the following questions:
+#### 2. Clone the Repository: 
+
+Open a terminal or command prompt on your computer. Navigate to the directory where you want to download the repository. Use the following command to clone the repository:
+
+```
+git clone https://github.com/Itamar9494/pixel
+```
+
+#### 3. Navigate to the Repository: 
+
+After cloning the repository, navigate to the repository's directory using the cd command in the terminal or command prompt:
+
+```
+cd <repository_directory>
+```
+
+Replace <repository_directory> with the name of the cloned repository's directory.
+
+#### 4. Download a Specific File: 
+
+Use the following command to download a specific file from the repository:
+
+```
+git checkout "main" -- <new_branch>
+```
+
+Replace <new_branch> with the name of the branch to want to work on
+
+#### 5. Access the Downloaded File: 
+
+Once the file is downloaded, you can access it in the local directory on your computer. You can use it according to its file type and purpose.
+
+#### 6. Uploading Image:
+
+Upload the image you want to pixelate to the "files" folder.
+
+#### 8. Run the code on "app" file 
+
+Open "app" file and run the code. The code will show you the names of all the images in the files folder.
+     
+Now, answer the following questions:
     
-    a. How many shades would you like for the picture? Note that to draw the pixelated image as game cubes, choose a number less than or equal to 7.
+- Which image would you like to choose? Enter the corresponding number:    
     
-    b. How would you like to choose the image size? Based on the total number of pixels or by manually defining the number of rows and columns?
+- How many shades would you like for the picture? 
+
+    Note: to draw the pixelated image as game cubes, choose a number less than or equal to 7.
     
-    c. How many pixels or how many rows and columns would you like?
+- How would you like to choose the image size? 
+ 
+    Based on the total number of pixels or by manually defining the number of rows and columns?
     
-    d. Would you like to see the original image?
+- How many pixels or how many rows and columns would you like?
     
-    e. Would you like to see the pixelated image?
+- Would you like to see the original image?
     
-    f. Would you like to save the new image as a CSV file?
+- Would you like to see the pixelated image?
     
-    g. Would you like to see and save the pixelated image as it is drawn by game cubes?
+- Would you like to save the new image as a CSV file?
+    
+- Would you like to see and save the pixelated image as it is drawn by game cubes?
   
 ## Prerequisites
 
-To use the code, please install the following packages using `pip install`:
 
-- Package 1: `pip install math`
-- Package 2: `pip install numpy`
-- Package 3: `pip install imageio`
-- Package 4: `pip install matplotlib`
-- Package 5: `pip install pandas`
-- Package 7: `pip install turtle`
-- Package 8: `pip install os`
+Open a terminal or command prompt on your computer, and writ the command:
+
+```
+pip install -r requirements.txt
+```
 
 Additionally, download [EPS Viewer app](https://epsviewer.org/download.aspx) to open the EPS files containing the dice pixel images.
