@@ -1,6 +1,6 @@
 from utils import show_picture
 import os
-
+ 
 folder_path = "files"
 
 files = os.listdir(folder_path)
