@@ -1,7 +1,7 @@
 # Pixel Project
 ## Introduction
 
-The software allows you to upload any image you want and create a new, pixelated image of the original image. You can control the size, the number of pixels and the number of shades of the image. Also, it is also possible to get the image pixelated by playing dice, where the shade of the image is determined by the number on the dice.
+The program allows you to upload any image you want and create a new, pixelated image of the original image. You can control the size, the number of pixels and the number of shades of the image. Also, it is possible to get the image pixelated by playing dice, where the shade of the image is determined by the number on the dice.
 
 ### Example:
 
@@ -52,27 +52,18 @@ cd <repository_directory>
 
 Replace <repository_directory> with the name of the cloned repository's directory.
 
-#### 4. Download a Specific File: 
+#### 4. Uploading Image:
 
-Use the following command to download a specific file from the repository:
+Upload the image you want to pixelate to the `files` folder
 
+#### 5. Run the code on "app" file 
+
+Run the program by:
 ```
-git checkout "main" -- <new_branch>
+python app.py
 ```
 
-Replace <new_branch> with the name of the branch to want to work on
-
-#### 5. Access the Downloaded File: 
-
-Once the file is downloaded, you can access it in the local directory on your computer. You can use it according to its file type and purpose.
-
-#### 6. Uploading Image:
-
-Upload the image you want to pixelate to the "files" folder.
-
-#### 8. Run the code on "app" file 
-
-Open "app" file and run the code. The code will show you the names of all the images in the files folder.
+The code will show you the names of all the images in the files folder.
      
 Now, answer the following questions:
     
@@ -99,7 +90,7 @@ Now, answer the following questions:
 ## Prerequisites
 
 
-Open a terminal or command prompt on your computer, and writ the command:
+Open a terminal or command prompt on your computer, and run:
 
 ```
 pip install -r requirements.txt

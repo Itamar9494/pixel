@@ -171,7 +171,7 @@ def show_dice_picture(im, size, dot_size, height, width):
 
 # Final
 def show_picture(file):
-    colors_num = int(input('How many colors do you want?'))
+    colors_num = int(input('How many colors do you want? (for dice-painting: 7) '))
     original_file = 'files/' + file
     im = imageio.imread(original_file)
     im_gray = rgb2gray(im)
