@@ -1,7 +1,7 @@
 # Pixel Project
 ## Introduction
 
-The software allows you to upload any image you want and create a new, pixelated image of the original image. You can control the size, the number of pixels and the number of shades of the image. Also, it is also possible to get the image pixelated by playing dice, where the shade of the image is determined by the number on the dice.
+The program allows you to upload any image you want and create a new, pixelated image of the original image. You can control the size, the number of pixels and the number of shades of the image. Also, it is possible to get the image pixelated by playing dice, where the shade of the image is determined by the number on the dice.
 
 ### Example:
 
@@ -49,30 +49,25 @@ After cloning the repository, navigate to the repository's directory using the c
 ```
 cd <repository_directory>
 ```
-
-Replace <repository_directory> with the name of the cloned repository's directory.
-
-#### 4. Download a Specific File: 
-
-Use the following command to download a specific file from the repository:
+#### 4. pip-install Prerequisites:
+Inside the "pixel project" directory, run: 
 
 ```
-git checkout "main" -- <new_branch>
+pip install -r requirements.txt
 ```
 
-Replace <new_branch> with the name of the branch to want to work on
+#### 5. Uploading Image:
 
-#### 5. Access the Downloaded File: 
+Upload the image you want to pixelate to the `files` folder
 
-Once the file is downloaded, you can access it in the local directory on your computer. You can use it according to its file type and purpose.
+#### 6. Run the code on "app" file 
 
-#### 6. Uploading Image:
+Run the program by:
+```
+python app.py
+```
 
-Upload the image you want to pixelate to the "files" folder.
-
-#### 8. Run the code on "app" file 
-
-Open "app" file and run the code. The code will show you the names of all the images in the files folder.
+The code will show you the names of all the images in the files folder.
      
 Now, answer the following questions:
     
@@ -95,14 +90,6 @@ Now, answer the following questions:
 - Would you like to save the new image as a CSV file?
     
 - Would you like to see and save the pixelated image as it is drawn by game cubes?
-  
-## Prerequisites
 
-
-Open a terminal or command prompt on your computer, and writ the command:
-
-```
-pip install -r requirements.txt
-```
 
 Additionally, download [EPS Viewer app](https://epsviewer.org/download.aspx) to open the EPS files containing the dice pixel images.

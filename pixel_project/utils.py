@@ -5,7 +5,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import turtle
 import os
- 
+import time 
+
 def rgb2gray(rgb):
     return np.dot(rgb[...,:3], [0.2989, 0.5870, 0.1140])
 
@@ -152,6 +153,11 @@ def draw_dice(size, dot_size, num_of_dots, height, width):
 
 # show dice paiting
 def show_dice_picture(im, size, dot_size, height, width):
+
+    print(f'Dice-painting Size: {im.shape[0] * im.shape[1]}')
+    #  start timer
+    s_time = time.time()
+
     turtle.penup()
     turtle.goto(width,height)
     turtle.pendown()
@@ -168,10 +174,17 @@ def show_dice_picture(im, size, dot_size, height, width):
         new_height -= size*11/10
         turtle.goto(width,new_height)
         turtle.pendown()
+    
+    #  stop timer
+    e_time = time.time()
+
+    elapsed_time = e_time - s_time
+    print(f"Total time for dice-painting: {elapsed_time:.2f} seconds")
+
 
 # Final
 def show_picture(file):
-    colors_num = int(input('How many colors do you want?'))
+    colors_num = int(input('How many colors do you want? (for dice-painting: 7) '))
     original_file = 'files/' + file
     im = imageio.imread(original_file)
     im_gray = rgb2gray(im)
@@ -242,15 +255,3 @@ def show_picture(file):
         show_dice_picture(im_num, size, size / 3, new_height, new_width)
         turtle.getcanvas().postscript(file=path)
         turtle.done()
-
-def main_function():
-    rgb2gray()
-    find_middle()
-    im2pixel()
-    im2numbers()
-    question()
-    image_shrink_lines()
-    image_shrink_pixels()
-    draw_dice()
-    show_dice_picture()
-    show_picture()
