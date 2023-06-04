@@ -212,5 +212,5 @@ def show_picture(file):
         turtle.goto(new_width, new_height)
         turtle.pendown()
         show_dice_picture(im_num, size, size / 3, new_height, new_width)
-        turtle.getcanvas().postscript(file=path)
+        turtle.getcanvas().postscript(file=path, pageheight=new_height, pagewidth=new_width)
         turtle.done()
