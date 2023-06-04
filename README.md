@@ -49,14 +49,18 @@ After cloning the repository, navigate to the repository's directory using the c
 ```
 cd <repository_directory>
 ```
+#### 4. pip-install Prerequisites:
+Inside the "pixel project" directory, run: 
 
-Replace <repository_directory> with the name of the cloned repository's directory.
+```
+pip install -r requirements.txt
+```
 
-#### 4. Uploading Image:
+#### 5. Uploading Image:
 
 Upload the image you want to pixelate to the `files` folder
 
-#### 5. Run the code on "app" file 
+#### 6. Run the code on "app" file 
 
 Run the program by:
 ```
@@ -86,14 +90,6 @@ Now, answer the following questions:
 - Would you like to save the new image as a CSV file?
     
 - Would you like to see and save the pixelated image as it is drawn by game cubes?
-  
-## Prerequisites
 
-
-Open a terminal or command prompt on your computer, and run:
-
-```
-pip install -r requirements.txt
-```
 
 Additionally, download [EPS Viewer app](https://epsviewer.org/download.aspx) to open the EPS files containing the dice pixel images.
