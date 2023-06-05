@@ -90,64 +90,21 @@ def draw_dice(size, dot_size, num_of_dots, height, width):
     turtle.forward(size)
     turtle.penup()
 
-    #     if num_of_dots == 0:
-    #         turtle.left(90)
-    #         turtle.forward(size*11/10)
+    dot_positions = {
+        1: [(size / 2, size / 2)],
+        2: [(size / 4, size / 2), (size * 3 / 4, size / 2)],
+        3: [(size / 4, size / 4), (size / 2, size / 2), (size * 3 / 4, size * 3 / 4)],
+        4: [(size / 4, size / 4), (size * 3 / 4, size / 4), (size * 3 / 4, size * 3 / 4), (size / 4, size * 3 / 4)],
+        5: [(size / 4, size / 4), (size * 3 / 4, size / 4), (size * 3 / 4, size * 3 / 4), (size / 4, size * 3 / 4), (size / 2, size / 2)],
+        6: [(size / 6, size / 4), (size / 2, size / 4), (size * 5 / 6, size / 4), (size / 6, size * 3 / 4), (size / 2, size * 3 / 4), (size * 5 / 6, size * 3 / 4)]
+    }
 
-    if num_of_dots == 1:
-        turtle.goto(width + size / 2, height + size / 2)
+    dots = dot_positions.get(num_of_dots, [])
+    for dot_position in dots:
+        x, y = dot_position
+        turtle.goto(width + x, height + y)
         turtle.dot(dot_size)
-
-    if num_of_dots == 2:
-        turtle.goto(width + size / 4, height + size / 2)
-        turtle.dot(dot_size)
-        turtle.goto(width + size * 3 / 4, height + size / 2)
-        turtle.dot(dot_size)
-
-    if num_of_dots == 3:
-        turtle.goto(width + size / 4, height + size / 4)
-        turtle.dot(dot_size)
-        turtle.goto(width + size / 2, height + size / 2)
-        turtle.dot(dot_size)
-        turtle.goto(width + size * 3 / 4, height + size * 3 / 4)
-        turtle.dot(dot_size)
-
-    if num_of_dots == 4:
-        turtle.goto(width + size / 4, height + size / 4)
-        turtle.dot(dot_size)
-        turtle.goto(width + size * 3 / 4, height + size / 4)
-        turtle.dot(dot_size)
-        turtle.goto(width + size * 3 / 4, height + size * 3 / 4)
-        turtle.dot(dot_size)
-        turtle.goto(width + size / 4, height + size * 3 / 4)
-        turtle.dot(dot_size)
-
-    if num_of_dots == 5:
-        turtle.goto(width + size / 4, height + size / 4)
-        turtle.dot(dot_size)
-        turtle.goto(width + size * 3 / 4, height + size / 4)
-        turtle.dot(dot_size)
-        turtle.goto(width + size * 3 / 4, height + size * 3 / 4)
-        turtle.dot(dot_size)
-        turtle.goto(width + size / 4, height + size * 3 / 4)
-        turtle.dot(dot_size)
-        turtle.goto(width + size / 2, height + size / 2)
-        turtle.dot(dot_size)
-
-    if num_of_dots == 6:
-        turtle.goto(width + size / 6, height + size / 4)
-        turtle.dot(dot_size)
-        turtle.goto(width + size / 2, height + size / 4)
-        turtle.dot(dot_size)
-        turtle.goto(width + size * 5 / 6, height + size / 4)
-        turtle.dot(dot_size)
-        turtle.goto(width + size / 6, height + size * 3 / 4)
-        turtle.dot(dot_size)
-        turtle.goto(width + size / 2, height + size * 3 / 4)
-        turtle.dot(dot_size)
-        turtle.goto(width + size * 5 / 6, height + size * 3 / 4)
-        turtle.dot(dot_size)
-
+    
     turtle.left(90)
 
 
@@ -162,7 +119,7 @@ def show_dice_picture(im, size, dot_size, height, width):
     turtle.goto(width,height)
     turtle.pendown()
     new_height = height
-    turtle.tracer(2)  # control animation speed
+    turtle.tracer(0)  # control animation speed
     for i in range(im.shape[0]):
         new_width = width
         for j in range(im.shape[1]):
@@ -170,6 +127,8 @@ def show_dice_picture(im, size, dot_size, height, width):
             new_width += size*11/10
             turtle.goto(new_width,new_height)
             turtle.pendown()
+            if (j % (im.shape[1] // 3) == 0) and (i % (im.shape[0] // 20) == 0):
+                turtle.update()
         turtle.penup()
         new_height -= size*11/10
         turtle.goto(width,new_height)
@@ -253,5 +212,5 @@ def show_picture(file):
         turtle.goto(new_width, new_height)
         turtle.pendown()
         show_dice_picture(im_num, size, size / 3, new_height, new_width)
-        turtle.getcanvas().postscript(file=path)
+        turtle.getcanvas().postscript(file=path, pageheight=new_height, pagewidth=new_width)
         turtle.done()
