@@ -182,7 +182,7 @@ def show_picture(file):
 
     new_pixel_file = question("Do you want to create a new file of the image's pixels? (y/n) ", ['y', 'n'])
 
-    EXPORT_FILES_DIR = 'export_files'
+    EXPORT_FILES_DIR = "pixel/pixel_project/export_files"
 
     if new_pixel_file == 'y':
         file_name = input("Choose file's name: ") + '.csv'
